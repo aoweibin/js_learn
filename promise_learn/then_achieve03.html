@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="./js/index04.js"></script>
+    <script>
+      const promise1 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve(100);
+        }, 3000);
+      });
+      console.log(promise1);
+
+      const promise2 = promise1.then(
+        (value) => {
+          console.log("成功1: ",value);
+        },
+        (reason) => {
+          console.log("失败1: ",reason);
+        }
+      );
+      console.log(promise2);
+
+      const promise3 = promise1.then(
+        (value) => {
+          console.log("成功2: ",value);
+        },
+        (reason) => {
+          console.log("失败2: ",reason);
+        }
+      );
+      console.log(promise3);
+
+      const promise4 = promise1.then(
+        (value) => {
+          console.log("成功3: ",value);
+        },
+        (reason) => {
+          console.log("失败3: ",reason);
+        }
+      );
+      console.log(promise4);
+    </script>
+  </body>
+</html>

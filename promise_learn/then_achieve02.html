@@ -6,28 +6,27 @@
     <title>Document</title>
   </head>
   <body>
-    <script src="./index02.js"></script>
+    <script src="./js/index03.js"></script>
     <script>
       const promise1 = new Promise((resolve, reject) => {
-        resolve(100);
-        // reject("hello");
-        // throw "错误!";
-        // throw new Error("错误!!");
+        setTimeout(() => {
+          console.log(100);
+          resolve(100);
+        }, 3000);
       });
+
       console.log(promise1);
 
       const promise2 = promise1.then(
         (value) => {
-          console.log(value);
-          return new Promise((resolve, reject) => {
-            reject("hello");
-          });
+          console.log("成功: ", value);
+          return 200;
         },
         (reason) => {
-          console.log(reason);
-          return 100;
+          console.log("失败: ", reason);
         }
       );
+
       console.log(promise2);
     </script>
   </body>
