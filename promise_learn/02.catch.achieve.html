@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="./js/02.catch_achieve.js"></script>
+    <script>
+      const promise1 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          reject("错误");
+        }, 3000);
+      });
+      console.log(promise1);
+
+      const promise2 = promise1.catch((reason) => {
+        console.log("失败: ", reason);
+        return new Promise((resolve, reject) => {
+          // resolve(100);
+          // reject("错误");
+          // throw "error";
+          setTimeout(() => {
+            console.log("完成");
+            reject(100);
+          }, 2000);
+        });
+      });
+      console.log(promise2);
+    </script>
+  </body>
+</html>
